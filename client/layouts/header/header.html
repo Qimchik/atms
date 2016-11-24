@@ -1,0 +1,60 @@
+<template name="header">
+  <header class="navbar" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="/images/atms.gif" style="position:relative;top:-16px;"></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="menu" aria-expanded="false">
+            <ul class="nav navbar-nav">
+                {{#if currentUser}}
+                    <li class="active"><a href="/">ATMS</a></li>
+                {{/if}}
+                {{#if manager}}
+                    <li class="active"><a href="{{pathFor 'invoices'}}">Reports</a></li>
+                {{/if}}
+                {{#if currentUser.profile.isAdmin}}
+                    <li class="active"><a href="{{pathFor 'allProjects'}}">Projects</a></li>
+                {{/if}}
+                {{#if manager}}
+                    <li class="active"><a href="{{pathFor 'allTasks'}}">Tasks</a></li>
+                    <li class="active"><a href="{{pathFor 'locker'}}">Locker</a></li>
+                {{/if}}
+                {{#if currentUser}}
+                    <li class="active"><a href="{{pathFor 'allUsers'}}">Team</a></li>
+                {{/if}}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {{#if currentUser}}
+                    <li id="login-dropdown-list" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            {{user}}
+                            <b class="caret"></b>
+                        </a>
+                        <form class="dropdown-menu">   
+                            <button class="btn btn-default btn-block" id="login-edit-profile">Edit profile</button>
+                            <button class="btn btn-block btn-primary" id="login-logout">Sign out</button>
+                        </form>
+                    </li>
+                    {{else}}
+                        <li id="login-dropdown-list" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Sign in<b class="caret"></b></a>
+                            <form class="dropdown-menu">
+                                <input id="login-email" type="email" placeholder="Email" class="form-control">
+                                <input id="login-password" type="password" placeholder="Password" class="form-control">
+                                <button class="btn btn-primary col-xs-12 col-sm-12" id="login-submit" type="button">
+                                    Sign in
+                                </button>
+                            </form>
+                        </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+  </header>
+</template>

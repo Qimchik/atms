@@ -1,0 +1,47 @@
+<template name="tracker">
+  <h1>Manage Your Hours</h1>
+  <div class="form-horizontal">
+    <div class="col-md-3">
+      <div class="form-group">
+        <select name="weeks" id="weeks" class="form-control">
+          {{#each dates}}
+            {{#if isCurrent}}
+              <option id="{{id}}" selected>{{from}} - {{to}}</option>
+              {{else}}
+                <option id="{{id}}">{{from}} - {{to}}</option>
+            {{/if}}
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <div class="col-md-2" style="top:7px;">
+      <input name="completed" id="completed" type="checkbox" checked="{{checked}}" style="position:relative;top:-1px;">
+      <label for="completed">
+        Completed
+      </label>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  {{> allTracks}}
+  <br/>
+  <div class="row">
+    <div class="col-md-6">
+      {{> expenses}}
+    </div>
+    <div class="col-md-6">
+      {{> pto}}
+    </div>
+  </div>
+  {{clearPathes}}
+  {{#if images}}
+    <br>
+    <div class="row">
+      {{#each images}}
+        <div class="col-md-3" style="position:relative;">
+          <img src="{{this}}" class="thumbnail" style="max-width:100%;">
+          <span class="close image">x</span>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</template>

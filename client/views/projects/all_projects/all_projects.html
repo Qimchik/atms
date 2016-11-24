@@ -1,0 +1,36 @@
+<template name="allProjects">
+  <h1>Projects</h1>
+  {{#if projects}}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Project Name</th>
+          <th>Project Manager</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each projects}}
+          {{> project}}
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+  <a id="new" class="btn btn-primary" href="{{pathFor 'newProject'}}"><span class="glyphicon glyphicon-plus"></span>&nbsp;New</a>
+</template>
+
+<template name="project">
+  <tr>
+    <td>
+      <a href="{{pathFor 'editProject'}}">{{title}}</a>
+    </td>
+    <td>
+      {{#each managers}}
+        <label class="label label-default">{{this}}</label>&nbsp;
+      {{/each}}
+    </td>
+    <td>
+      <a href="{{pathFor 'editProject'}}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-edit"></span>&nbsp;Edit</a>
+    </td>
+  </tr>
+</template>

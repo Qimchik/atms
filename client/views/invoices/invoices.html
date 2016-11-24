@@ -1,0 +1,59 @@
+<template name="invoices">
+  <h1>Reports</h1>
+  <form class="form-horizontal">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="control-label col-sm-4">Project Name</label>
+            <div class="col-sm-8">
+              <select class="form-control">
+                {{#each projects}}
+                  <option id="{{this._id}}">{{this.title}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="control-label col-sm-4">Week From</label>
+            <div class="col-sm-8">
+              <select name="weeksFrom" id="weeksFrom" class="form-control">
+                {{#each dates}}
+                  {{#if isCurrent}}
+                    <option id="{{id}}" selected>{{from}} - {{to}}</option>
+                    {{else}}
+                      <option id="{{id}}">{{from}} - {{to}}</option>
+                  {{/if}}
+                {{/each}}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="control-label col-sm-4">Week To</label>
+            <div class="col-sm-8">
+              <select name="weeksTo" id="weeksTo" class="form-control">
+                {{#each dates}}
+                  {{#if isCurrent}}
+                    <option id="{{id}}" selected>{{from}} - {{to}}</option>
+                    {{else}}
+                      <option id="{{id}}">{{from}} - {{to}}</option>
+                  {{/if}}
+                {{/each}}
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-submit text-right">
+      <button class="btn btn-primary">Get report</button>
+    </div>
+  </form>
+</template>

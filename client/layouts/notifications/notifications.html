@@ -1,0 +1,29 @@
+<template name="info">
+  <div class="notifications row-fluid">
+    {{#each info}}
+      {{> infoItem}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="infoItem">
+  <div class="alert throw alert-info" role="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    {{message}}
+  </div>
+</template>
+
+<template name="errors">
+  <div class="notifications row-fluid">
+    {{#each errors}}
+      {{> error}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="error">
+  <div class="alert throw alert-danger" role="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    {{message}}
+  </div>
+</template>

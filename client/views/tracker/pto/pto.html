@@ -1,0 +1,30 @@
+<template name="pto">
+  {{#if FTE}}
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>PTO</th>
+          <th>Hours</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>At the end of the prior period</td>
+          <td>{{pto.endOfPrior}}</td>
+        </tr>
+        <tr>
+          <td>Accrued during the current period</td>
+          <td>{{pto.duringCurrent}}</td>
+        </tr>
+        <tr>
+          <td>Taken during the current period</td>
+          <td>{{pto.taken}}</td>
+        </tr>
+        <tr>
+          <td>At the end of the current period</td>
+          <td>{{pto.endOfCurrent}}</td>
+        </tr>
+      </tbody>
+    </table>
+  {{/if}}
+</template>

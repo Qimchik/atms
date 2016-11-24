@@ -1,0 +1,56 @@
+<template name="editUserProjects">
+	<h1 id="{{_id}}">Assigned Projects for {{userName}}</h1>
+	<div class="row-fluid">
+		<div class="alert alert-warning" role="alert">
+			<p style="margin-bottom: 10px;">Assigned Projects:</p>
+			<ul>
+				{{#each userAccesses}}
+					<li>
+						{{title}} {{dateRange}}
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+	{{#if projects}}
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Project Name</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each projects}}
+					<tr>
+						<td>
+							{{title}}
+						</td>
+						<td>
+							{{#if assigned}}
+								<button id="{{id}}" class="btn deassign btn-sm btn-default"><span class="glyphicon glyphicon-minus"></span>&nbsp;Deassign</button>
+							{{else}}
+								{{#if GSApps}}
+									<button id="{{id}}" class="btn assign btn-sm btn-default"><span class="glyphicon glyphicon-plus"></span>&nbsp;Assign</button>
+									<div class="clearfix"></div>
+								{{else}}
+									<div class="input-group" style="max-width:400px;float:left;">
+										<input type="text" name="dateFrom" class="form-control input-sm dateFrom" value="{{dateFrom}}">
+										<span class="input-group-addon" style="border-right:none;border-left:none;">-</span>
+										<input type="text" name="dateTo" class="form-control input-sm dateTo" value="{{dateTo}}">
+									</div>
+									&nbsp;
+									<button id="{{id}}" class="btn assign btn-sm btn-default"><span class="glyphicon glyphicon-plus"></span>&nbsp;Assign</button>
+									<div class="clearfix"></div>
+								{{/if}}
+							{{/if}}
+						</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	{{/if}}
+	<div class="form-submit text-right">
+		<a href="{{pathFor 'allUsers'}}" class="btn btn-default margin">Back</a>
+	</div>
+</template>

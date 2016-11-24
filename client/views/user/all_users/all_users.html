@@ -1,0 +1,84 @@
+<template name="allUsers">
+	<h1>Team</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Member Name</th>
+				<th colspan="10" style="text-align:center;">Scheduled PTO</th>
+				{{#if manager}}
+					<th>Assigned Projects</th>
+					<th></th>
+				{{/if}}
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="pto-row">
+				<td></td>
+				{{#each ptoDates}}
+					<td>{{this}}</td>
+				{{/each}}
+				{{#if manager}}
+					<td></td>
+					<td></td>
+				{{/if}}
+			</tr>
+			{{#each users}}
+				<tr>
+					<td>
+						{{#if manager}}
+							<a href="{{pathFor 'editUserProfile'}}">{{userName}}</a>
+							{{else}}
+								<a href="{{pathFor 'viewUserProfile'}}">{{userName}}</a>
+						{{/if}}
+					</td>
+					{{#each pto}}
+						<td>{{this.hours}}</td>
+					{{/each}}
+					{{#if manager}}
+						<td style="max-width:400px;">
+							{{> projects}}
+						</td>
+						<td>
+							<table class="btn-group">
+								<tbody>
+									<tr>
+										<td>
+											<a href="{{pathFor 'editUserProjects'}}" class="btn btn-sm btn-default">
+												<span class="glyphicon glyphicon-edit"></span>&nbsp;Manage Projects
+											</a>
+										</td>
+										{{#if admin}}
+											<td>
+												<button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<span class="caret"></span>
+													<span class="sr-only">Toggle Dropdown</span>
+												</button>
+												<ul class="dropdown-menu">
+													<li><a href="{{pathFor 'employmentHistory'}}" class="btn-sm"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Employment History</a></li>
+												</ul>
+											</td>
+										{{/if}}
+									</tr>
+								</tbody>
+							</table>
+							<!-- <td>
+								<form id="pto">
+									<input type="text">
+									<button>submit</button>
+								</td>
+							</form>
+								<td>
+							</td> -->
+						</td>
+					{{/if}}
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="projects">
+	{{#each projects}}
+		<span class="label label-default">{{this}}</span>
+	{{/each}}
+</template>

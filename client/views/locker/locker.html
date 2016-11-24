@@ -1,0 +1,179 @@
+<template name="locker">
+  <h1>Lock weeks</h1>
+  <form class="form-horizontal">
+    <div class="col-md-3">
+      <div class="form-group">
+        <select name="weeks" id="weeks" class="form-control">
+          {{#each dates}}
+            {{#if isCurrent}}
+              <option id="{{id}}" selected>{{from}} - {{to}}</option>
+              {{else}}
+                <option id="{{id}}">{{from}} - {{to}}</option>
+            {{/if}}
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <!-- <div class="form-submit text-right">
+      <button id="search" class="btn btn-primary">Search</button>
+    </div> -->
+  </form>
+  <div class="clearfix"></div>
+  <br/>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <!-- {{clearUsers}} -->
+    {{#each users}}
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{index}}" aria-expanded="true" aria-controls="collapse{{index}}" class="panel-link">
+            <h4 class="panel-title">
+              {{#if locked}}
+                <span class="glyphicon glyphicon-ok" style="float:left;"></span>
+                {{else}}
+                  <span class="glyphicon glyphicon-minus" style="float:left;"></span>
+              {{/if}}
+              &nbsp;
+              {{userName}}
+              <div style="float:right;">
+                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
+                {{#if expenses}}
+                  {{expenses}}
+                  {{else}}
+                    0
+                {{/if}}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-time"></span>&nbsp;
+                {{#if regular}}
+                  {{regular}}
+                  {{else}}
+                    0
+                {{/if}}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-fire"></span>&nbsp;
+                  {{#if overtime}}
+                    {{overtime}}
+                    {{else}}
+                      0
+                  {{/if}}
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-picture"></span>&nbsp;
+                  {{#if pto}}
+                    {{pto}}
+                    {{else}}
+                      0
+                  {{/if}}
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
+              <div class="clearfix"></div>
+            </h4>
+          </a>
+          <div class="buttons" style="float:right;">
+            &nbsp;
+            {{#if locked}}
+              <button class="btn btn-sm btn-default unlock">Unlock</button>
+              {{else}}
+                {{#if checked}}
+                  <button class="btn btn-sm btn-primary lock">Lock</button>
+                  {{else}}
+                    <button disabled="disabled" class="btn btn-sm btn-primary lock">Lock</button>
+                {{/if}}
+            {{/if}}
+          </div>
+        </div>
+        <div id="collapse{{index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            <table class="table table-bordered tracker">
+              <thead>
+                <tr>
+                  <th></th>
+                  {{#each weekDates}}
+                    <th style="text-align:center;">
+                      <span class="day-of-week">{{day}}</span>
+                      <br>
+                      <nobr><span class="date">{{date}}</span></nobr>
+                    </th>
+                  {{/each}}
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each tasks}}
+                  {{#each this}}
+                    <tr>
+                      <td id="{{id}}">
+                        {{title}}
+                      </td>
+                      {{#each hours}}
+                        {{#if comment}}
+                          <td id="{{date}}" class="hours" style="text-align:center;" data-toggle="tooltip" data-placement="bottom" title="{{comment}}">{{hours}}<small><span class="glyphicon glyphicon-comment"></span></small></td>
+                          {{else}}
+                            <td id="{{date}}" class="hours" style="text-align:center;">{{hours}}</td>
+                        {{/if}}
+                      {{/each}}
+                      <td>{{total}}</td>
+                    </tr>
+                  {{/each}}
+                {{/each}}
+              </tbody>
+              <tfoot>
+                <tr class="active">
+                  <td>
+                    <b>
+                      Total
+                    </b>
+                  </td>
+                  {{#each weekDates}}
+                    <td style="text-align:center;"></td>
+                  {{/each}}
+                  <td>
+                    <b>
+                      {{total}}
+                    </b>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+            <table class="table table-bordered pto" style="width:40%">
+              <thead>
+                <tr>
+                  <th>PTO</th>
+                  <th>Hours</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>At the end of the prior period</td>
+                  <td>{{fullPTO.endOfPrior}}</td>
+                </tr>
+                <tr>
+                  <td>Accured during the current period</td>
+                  <td>{{fullPTO.duringCurrent}}</td>
+                </tr>
+                <tr>
+                  <td>Taken during the current period</td>
+                  <td>{{fullPTO.taken}}</td>
+                </tr>
+                <tr>
+                  <td>At the end of the current period</td>
+                  <td>{{fullPTO.endOfCurrent}}</td>
+                </tr>
+              </tbody>
+            </table>
+            {{> lockerExpenses}}
+            <div class="form-submit text-right">
+              {{#if locked}}
+                <button class="btn btn-default unlock">Unlock</button>
+                {{else}}
+                  {{#if checked}}
+                    <button class="btn btn-primary lock">Lock</button>
+                    {{else}}
+                      <button disabled="disabled" class="btn btn-primary lock">Lock</button>
+                  {{/if}}
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</template>

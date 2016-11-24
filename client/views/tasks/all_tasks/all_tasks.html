@@ -1,0 +1,36 @@
+<template name="allTasks">
+  <h1>Tasks</h1>
+  {{#if projects}}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Project Name</th>
+          <th>Project Tasks</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each projects}}
+          {{> thisProject}}
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+</template>
+
+<template name="thisProject">
+  <tr>
+    <td>
+      {{title}}
+    </td>
+    <td style="max-width: 600px;" class="tasks">
+      {{#each tasks}}
+        {{#if isOvertime}}
+          <a href="{{pathFor 'editTask'}}"><span class="label label-warning">{{title}}</span></a>
+          {{else}}
+            <a href="{{pathFor 'editTask'}}"><span class="label label-primary">{{title}}</span></a>
+        {{/if}}
+      {{/each}}
+      <a href="{{pathFor 'newTaskForProject'}}" class="label label-primary label-padding"><span class="glyphicon glyphicon-plus"></span></a>
+    </td>
+  </tr>
+</template>

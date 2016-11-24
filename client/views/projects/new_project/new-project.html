@@ -1,0 +1,39 @@
+<template name="newProject">
+  <h1>Create new project</h1>
+  <form class="form-horizontal">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="title" class="control-label col-sm-4">Project Name</label>
+            <div class="col-sm-8">
+              <input name="title" type="text" class="form-control" placeholder="Project name">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 add-manager">
+          <div class="form-group">
+            <label for="manager" class="control-label col-sm-4">Manager</label>
+            <div class="col-sm-8">
+              <select name="manager" class="form-control manager">
+                {{#each users}}
+                  <option value="{{_id}}">{{firstName}} {{lastName}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <button id="plus" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-submit text-right">
+      <a href="{{pathFor 'allProjects'}}" class="btn btn-default">Back</a>
+      <button class="btn btn-primary">Create</button>
+    </div>
+  </form>
+</template>

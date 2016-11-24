@@ -1,0 +1,94 @@
+<template name="singup">
+  <h1>Create Account</h1>
+  <form class="form-horizontal">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="firstName">First Name <sup style="color:red;">*</sup></label>
+        <div class="col-sm-8">
+            <input class="form-control" name="firstName" type="text" value="{{firstName}}" placeholder="Your first name"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="lastName">Last Name <sup style="color:red;">*</sup></label>
+        <div class="col-sm-8">
+            <input class="form-control" name="lastName" type="text" value="{{lastName}}" placeholder="Your last name"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="email">Email <sup style="color:red;">*</sup></label>
+        <div class="col-sm-8">
+            <input class="form-control" name="email" type="email" value="{{email}}" placeholder="Your email"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="password">Password <sup style="color:red;">*</sup></label>
+        <div class="col-sm-8">
+            <input class="form-control" name="password" type="text" value="{{password}}" placeholder="Your password"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="confirmPassword">Confirm Password <sup style="color:red;">*</sup></label>
+        <div class="col-sm-8">
+            <input class="form-control" name="confirmPassword" type="text" value="{{confirmPassword}}" placeholder="Confirm your password"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="userName">Nickname</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="nickname" type="text" value="{{nickname}}" placeholder="Your nickname"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="skype">Skype</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="skype" type="text" value="{{skype}}" placeholder="Your skype id"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="dateOfBirth">Date of Birthday</label>
+        <div class="col-sm-8">
+          <input id="dateOfBirth" name="dateOfBirth" type="text" class="form-control" placeholder="MMM DD, YYYY" value="{{dateOfBirth}}">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="mobPhone">Mobile Phone</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="mobPhone" type="text" value="{{mobPhone}}" placeholder="Your phone number"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="homePhone">Home Phone</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="homePhone" type="text" value="{{homePhone}}" placeholder="Your phone number"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="address">Emergency Contact</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="address" type="text" value="{{address}}" placeholder="Contact name"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="emergencyPhone">Emergency Phone</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="emergencyPhone" type="text" value="{{emergencyPhone}}" placeholder="Emergency phone number"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-submit text-right">
+        <button class="btn btn-primary">Create</button>
+      </div>
+  </form>
+</template>

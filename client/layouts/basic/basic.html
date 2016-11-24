@@ -1,0 +1,10 @@
+<template name="basic">
+  {{> header}}
+  <div class="container">
+    {{> errors}}
+    {{> info}}
+    <div id="main" class="row-fluid">
+      {{> yield}}
+    </div>
+  </div>
+</template>

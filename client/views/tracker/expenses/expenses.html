@@ -1,0 +1,73 @@
+<template name="expenses">
+  <div class="row">
+    <div class="col-md-10">
+      <table class="table table-bordered expenses">
+        <thead>
+          <tr>
+            <th>Expenses</th>
+            <th style="width:30%;">USD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Transportation</td>
+            <td id="transportation" class="expense" style="width:30%;">
+              $ {{expenses.transportation}}
+              {{> addExpenses}}
+            </td>
+          </tr>
+          <tr>
+            <td>Meal</td>
+            <td id="meal" class="expense" style="width:30%;">
+              $ {{expenses.meal}}
+              {{> addExpenses}}
+            </td>
+          </tr>
+          <tr>
+            <td>Lodging</td>
+            <td id="lodging" class="expense" style="width:30%;">
+              $ {{expenses.lodging}}
+              {{> addExpenses}}
+            </td>
+          </tr>
+          <tr>
+            <td>Office supply</td>
+            <td id="officeSupply" class="expense" style="width:30%;">
+              $ {{expenses.officeSupply}}
+              {{> addExpenses}}
+            </td>
+          </tr>
+          <tr>
+            <td>Entertaiment</td>
+            <td id="entertaiment" class="expense" style="width:30%;">
+              $ {{expenses.entertaiment}}
+              {{> addExpenses}}
+            </td>
+          </tr>
+          <tr>
+            <td>Other</td>
+            <td id="other" class="expense" style="width:30%;">
+              $ {{expenses.other}}
+              {{> addExpenses}}
+            </td>
+          </tr>
+          <tr>
+            <td><b>Total</b></td>
+            <td style="width:30%;">
+              <b>$ {{expenses.total}}</b>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="imageUpload" class="row" style="display:none;">
+    <div class="col-md-12">
+      {{> upload_bootstrap multiple=true callbacks=fileWasUploaded}}
+    </div>
+  </div>
+</template>
+
+<template name="addExpenses">
+  <div class="addExpenses" style="position:absolute;display:none;top:-4px;left:-3px;"><input style="text-align:center;" type="text"></div>
+</template>

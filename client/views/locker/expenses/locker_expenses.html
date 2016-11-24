@@ -1,0 +1,21 @@
+<template name="lockerExpenses">
+  {{#if expenses}}
+    <h3>Expenses:</h3>
+    <ul>
+      {{#each expenses}}
+        {{#if images}}
+          <li><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#attachments{{index}}" aria-expanded="false" aria-controls="attachments{{index}}">{{this.type}} - $ {{this.cost}}</button></li>
+          <div class="collapse" id="attachments{{index}}">
+            <div class="well">
+              {{#each images}}
+                <a href="{{this}}"><img src="{{this}}" style="max-width:100%;"></a>
+              {{/each}}
+            </div>
+          </div>
+          {{else}}
+            <li>{{this.type}} - $ {{this.cost}}</li>
+        {{/if}}
+      {{/each}}
+    </ul>
+  {{/if}}
+</template>

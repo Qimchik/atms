@@ -1,0 +1,178 @@
+header.navbar {
+  border-bottom: 2px solid #eee;
+  margin-bottom: 0;
+}
+
+#login-dropdown-list .dropdown-toggle {
+  cursor: pointer;
+}
+
+form.dropdown-menu {
+  width: 250px;
+  padding: 10px 20px;
+}
+
+#main > .alert.alert-danger {
+  margin-top: 20px;
+}
+
+.form-horizontal .control-label {
+  text-align: left;
+  padding-left: 0;
+}
+
+.modal .form-horizontal .control-label {
+  padding-left: 15px;
+}
+
+.navbar-toggle.collapsed:hover {
+  background: #eee;
+}
+
+.navbar-toggle.collapsed:hover .icon-bar {
+  background: #23527c;
+}
+
+.icon-bar {
+  background: #337ab7;
+}
+
+.notifications {
+  position: fixed;
+  z-index: 10000;
+  padding: 10px;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.alert.throw {
+  position: fixed;
+  top: 60px;
+  right: 10px;
+          animation: fadeOut 2700ms ease-in 0s 1 forwards;
+  -webkit-animation: fadeOut 2700ms ease-in 0s 1 forwards;
+     -moz-animation: fadeOut 2700ms ease-in 0s 1 forwards;
+  width: 250px;
+  float: right;
+  clear: both;
+  margin-bottom: 5px;
+  pointer-events: auto;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: .5;}
+  20% {opacity: 1;}
+  80% {opacity: 1;}
+  90% {opacity: .3;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: .5;}
+  20% {opacity: 1;}
+  80% {opacity: 1;}
+  90% {opacity: .3;}
+  100% {opacity: 0;}
+}
+
+.form-submit {
+  clear: both;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #f5f5f5;
+  border-radius: 3px;
+}
+
+.form-submit button,
+.form-submit .margin {
+  margin-right: 15px;
+}
+
+.form-submit .nomargin {
+  margin-right: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.tracker tbody td {
+  position: relative;
+}
+
+.tracker small {
+  position: absolute;
+  top: 0px;
+}
+
+.panel-link:hover {
+  text-decoration: none;
+}
+
+.buttons {
+  position: relative;
+  top: -23px;
+}
+
+.panel-title {
+  padding-right: 70px;
+}
+
+.date {
+  font-weight: 400;
+}
+
+.day-of-week {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.expense {
+  position: relative;
+}
+
+.close.image {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  color: black;
+  background: #fff;
+  padding: 0 6px 2px;
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.btn-file,
+.btn-info {
+  padding: 6px 5px;
+}
+
+.progress-label {
+  overflow: hidden;
+}
+
+.view-user-profile input {
+  color: #000;
+}
+
+.user-avatar div.progress-label {
+  opacity: 0;
+}
+
+a.label.label-primary.label-padding {
+  padding-right: 5px;
+}
+
+.pto-row th {
+  font-size: 12px !important;
+  font-weight: 400;
+}
+
+.tasks a:hover {
+  text-decoration: none;
+}

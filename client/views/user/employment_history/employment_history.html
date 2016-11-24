@@ -1,0 +1,109 @@
+<template name="employmentHistory">
+  <h1>Employment History for {{user.userName}}</h1>
+  <form class="form-horizontal">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="hireDate">Hire Date</label>
+            <div class="col-sm-8">
+              <div class="input-group">
+                <input class="form-control" name="hireDate" type="text" value="{{user.hireDate}}" placeholder="Employee hire date"/>
+                <div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="resume">Original Resume</label>
+            <div class="col-sm-8">
+              {{#if resume}}
+                <img src="resume">
+                {{else}}
+                  {{> upload_bootstrap callbacks=resumeWasUploaded}}
+              {{/if}}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="passport">Passport #</label>
+            <div class="col-sm-8">
+              <input class="form-control" name="passport" type="text" value="{{user.passport}}" placeholder="Employee passport number"/>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <!-- <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+            <label class="control-label col-sm-8" for="ptoAllowance">PTO allowance</label>
+            <div class="col-sm-4">
+              <select name="ptoAllowance" id="ptoAllowance" class="form-control">
+                {{#each user.ptoAllowance}}
+                  {{#if isCurrent}}
+                    <option id="{{id}}" selected>{{id}}</option>
+                    {{else}}
+                      <option id="{{id}}">{{id}}</option>
+                  {{/if}}
+                {{/each}}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label class="control-label col-sm-6" for="daysPlus">days plus</label>
+            <div class="col-sm-4">
+              <select name="daysPlus" id="daysPlus" class="form-control">
+                {{#each user.daysPlus}}
+                  {{#if isCurrent}}
+                    <option id="{{id}}" selected>{{id}}</option>
+                    {{else}}
+                      <option id="{{id}}">{{id}}</option>
+                  {{/if}}
+                {{/each}}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="daysPlusTill">for each year of employment till</label>
+            <div class="col-sm-1">
+              <select name="daysPlusTill" id="daysPlusTill" class="form-control">
+                {{#each user.daysPlusTill}}
+                  {{#if isCurrent}}
+                    <option id="{{id}}" selected>{{id}}</option>
+                    {{else}}
+                      <option id="{{id}}">{{id}}</option>
+                  {{/if}}
+                {{/each}}
+              </select>
+            </div>
+            <label class="control-label col-sm-4">years of employment</label>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    
+    <!-- {{#if isNotHRMS}}
+      <div class="form-submit text-right">
+        <a href="{{pathFor 'allUsers'}}" class="btn btn-default">Back</a>
+        <button class="btn btn-primary">Edit</button>
+      </div>
+      {{else}}
+        <div class="form-submit text-right">
+          <a href="{{pathFor 'allUsers'}}" class="btn btn-default margin">Back</a>
+        </div>
+    {{/if}} -->
+    <div class="form-submit text-right">
+      <a href="{{pathFor 'allUsers'}}" class="btn btn-default">Back</a>
+      <button class="btn btn-primary">Edit</button>
+    </div>
+  </form>
+</template>

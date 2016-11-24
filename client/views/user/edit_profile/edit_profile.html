@@ -1,0 +1,96 @@
+<template name="editProfile">
+  <h1>Edit Profile</h1>
+  <form class="form-horizontal">
+    <div class="col-md-2 user-avatar">
+      <div class="thumbnail avatar">
+        {{#if image}}
+          <img src="{{image}}">
+          {{else}}
+            <span class="glyphicon glyphicon-user" style="font-size:150px;"></span>
+        {{/if}}    
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="firstName">First Name</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="firstName" type="text" value="{{user.firstName}}" placeholder="User first name"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="lastName">Last Name</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="lastName" type="text" value="{{user.lastName}}" placeholder="User last name"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="nickname">Nickname</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="nickname" type="text" value="{{user.nickname}}" placeholder="User nickname"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="image" class="control-label col-sm-4">User Avatar</label>
+        <div class="col-sm-8">
+          {{> upload_bootstrap callbacks=imageWasUploaded}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="email">Email</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="email" type="email" value="{{email}}" placeholder="Your email"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="skype">Skype</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="skype" type="text" value="{{user.skype}}" placeholder="Your skype id"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="dateOfBirth">Date of Birthday</label>
+        <div class="col-sm-8">
+          <input id="dateOfBirth" name="dateOfBirth" type="text" class="form-control" placeholder="Month DD, YYYY" value="{{dateOfBirth}}">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="mobPhone">Mobile Phone</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="mobPhone" type="text" value="{{user.mobPhone}}" placeholder="Your phone number"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="address">Emergency Contact</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="address" type="text" value="{{user.address}}" placeholder="Your emergency contact"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="emergencyPhone">Emergency Phone</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="emergencyPhone" type="text" value="{{user.emergencyPhone}}" placeholder="Your emergency contact phone number"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="password">Password</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="password" type="text" autocomplete="off" placeholder="You can change your password"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-submit text-right">
+      <button class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</template>
