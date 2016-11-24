@@ -18,14 +18,18 @@
         <tbody>
           {{#each projects}}
             {{#each tasks}}
-              <tr>
+              <tr  id={{title}}>
                 <td id="{{id}}" style="width:455px;" class="tasksTitle">{{title}}</td>
                 {{#each hours}}
-                  {{#if comment}}
-                    <td id="{{date}}" class="hours" style="text-align:center;position:relative;" data-toggle="tooltip" data-placement="bottom" title="{{comment}}">{{hours}}<small><span class="glyphicon glyphicon-comment"></span></small><div class="addHours" style="position:absolute;display:none;top:-4px;left:-3px;"><input style="text-align:center;" type="text"></div></td>
-                    {{else}}
-                      <td id="{{date}}" class="hours" style="text-align:center;">{{hours}}<div class="addHours" style="position:absolute;display:none;top:-4px;left:-3px;"><input style="text-align:center;" type="text"></div></td>
-                  {{/if}}
+                 {{#if sold}}
+                    <td id="{{date}}" style="text-align:center;"></td>
+                  {{else}}
+                    {{#if comment}}
+                      <td id="{{date}}" class="hours" style="text-align:center;position:relative;" data-toggle="tooltip" data-placement="bottom" title="{{comment}}">{{hours}}<small><span class="glyphicon glyphicon-comment"></span></small><div class="addHours" style="position:absolute;display:none;top:-4px;left:-3px;"><input style="text-align:center;" type="text"></div></td>
+                      {{else}}
+                        <td id="{{date}}" class="hours" style="text-align:center;">{{hours}}<div class="addHours" style="position:absolute;display:none;top:-4px;left:-3px;"><input style="text-align:center;" type="text"></div></td>
+                    {{/if}}
+                   {{/if}}
                 {{/each}}
                 <td style="text-align:center;">{{total}}</td>
               </tr>

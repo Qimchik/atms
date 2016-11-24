@@ -5,6 +5,14 @@ Template.allTracks.rendered = function () {
 				$(this).text($(this).text().slice(0, 69) + '...');
 			}
 		});
+		document.getElementById('PTO').getElementsByTagName('td')[7].innerHTML = ''
+		/*
+.getElementsByTagName('tr')
+		$('#PTO').each(function() {
+			if ($(this).text().length >= 72) {
+				$(this).text($(this).text().slice(0, 69) + '...');
+			}
+		});*/
 	}, 300);
 };
 
@@ -87,7 +95,6 @@ function submitData() {
 	  ,	hours: $('.addHours:visible input').val()
 	  ,	comment: $('#comment').val().trim()
 	}
-
 	Meteor.call('logTime', data, function(error, result) {
 		if (error) throwError(error.reason)
 	})

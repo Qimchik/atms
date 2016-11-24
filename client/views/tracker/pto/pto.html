@@ -10,19 +10,24 @@
       <tbody>
         <tr>
           <td>At the end of the prior period</td>
-          <td>{{pto.endOfPrior}}</td>
+          <td style="text-align:center;">{{pto.endOfPrior}}</td>
         </tr>
         <tr>
           <td>Accrued during the current period</td>
-          <td>{{pto.duringCurrent}}</td>
+          <td style="text-align:center;">{{pto.duringCurrent}}</td>
         </tr>
         <tr>
           <td>Taken during the current period</td>
-          <td>{{pto.taken}}</td>
+          <td style="text-align:center;">{{pto.taken}}</td>
+        </tr>
+        <tr>
+          <td>PTO sold</td>
+          <td class="soldHours" style="position:relative;text-align:center;">{{pto.sold}}<div class="soldHoursDiv" style="position:absolute;display:none;top:-4px;left:-3px;"><input style="text-align:center;" type="text" value={{pto.sold}}></div></td>
+
         </tr>
         <tr>
           <td>At the end of the current period</td>
-          <td>{{pto.endOfCurrent}}</td>
+          <td style="text-align:center;">{{pto.endOfCurrent}}</td>
         </tr>
       </tbody>
     </table>

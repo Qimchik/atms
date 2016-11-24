@@ -7,7 +7,8 @@ MyAppExporter = {
       }
       var csv = Papa.unparse(result),
           date = getMonth(dates.from.getMonth()) + ' ' + dates.from.getDate() + ' - ' + getMonth(dates.to.getMonth()) + ' ' + dates.to.getDate();
-      self._downloadCSVProject(csv, result, Projects.findOne({_id: projectId}).title, date);
+
+      self._downloadCSVProject(csv.replace(new RegExp(",",'g'),";").replace(/[.]/g, ","), result, Projects.findOne({_id: projectId}).title, date);
     });
   },
   exportPTO: function(dates) {
@@ -18,7 +19,8 @@ MyAppExporter = {
       }
       var csv = Papa.unparse(result),
           date = getMonth(dates.from.getMonth()) + ' ' + dates.from.getDate() + ' - ' + getMonth(dates.to.getMonth()) + ' ' + dates.to.getDate();
-      self._downloadCSVPTO(csv, result, date);
+      
+      self._downloadCSVPTO(csv.replace(new RegExp(",",'g'),";").replace(/[.]/g, ","), result, date);
     });
   },
   exportExpenses: function(dates) {
